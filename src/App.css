@@ -22,3 +22,8 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+@font-face {
+  font-family: 'Pokemon';
+  src: url('./fonts/pokemon/Pokemon\ Hollow.ttf');
+  src: url('./fonts/pokemon/Pokemon\ Solid.ttf');
+}
