@@ -17,6 +17,13 @@
 .App-intro {
   font-size: large;
 }
+.title{
+  font-family: 'Pokemon';
+  font-size: 50px;
+  color: yellow;
+  text-shadow: 2px 2px 0px  blue, -2px -2px 0px  blue, 2px -2px 0px  blue, -2px 2px 0px  blue;
+
+}
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
@@ -24,6 +31,5 @@
 }
 @font-face {
   font-family: 'Pokemon';
-  src: url('./fonts/pokemon/Pokemon\ Hollow.ttf');
-  src: url('./fonts/pokemon/Pokemon\ Solid.ttf');
+  src: url('./fonts/pokemon/Pokemon-Solid.ttf');
 }

@@ -23,13 +23,13 @@ function handleSubmit(dispatch) {
 
 function Search(props) {
   return (
-    <form action="" onSubmit={handleSubmit(props.dispatch)}>
-      <input type="text" placeholder="id or name" name="pokemon"/>
-      <input type="submit"/>
+    <form action="" onInput={handleSubmit(props.dispatch)}>
+      <input type="text" placeholder="Enter Pokemon name or id" name="pokemon"/>
     </form>
   )
 }
-
+//<input type="submit"/>
+//changed onSubmit to onInput
 Search.propTypes = {
   dispatch: PropTypes.func,
 }
