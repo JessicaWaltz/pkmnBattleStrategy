@@ -21,6 +21,9 @@ class Pokemon extends Component {
           />
         </div>
         <div className="Detail">
+          <div className="display-none">
+            store types associated with pokemon type to use in results component
+          </div>
           <h4 className="Detail-name">
             {this.props.pokemon.get('name')}
           </h4>
