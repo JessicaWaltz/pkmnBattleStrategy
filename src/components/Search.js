@@ -29,7 +29,7 @@ function Search(props) {
   )
 }
 //<input type="submit"/>
-//changed onSubmit to onInput
+//changed onSubmit to onInput 
 Search.propTypes = {
   dispatch: PropTypes.func,
 }
