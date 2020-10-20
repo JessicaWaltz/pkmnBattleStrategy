@@ -47,86 +47,86 @@ const types = {
     ],
     "Fairy":[
         {
-            "weak-to":"",
-            "strong-against":""
+            "weak-to":["Poison", "Steel"],
+            "strong-against":["Fighting","Dark", "Dragon"]
         }
     ],
     "Fighting":[
         {
-            "weak-to":"",
-            "strong-against":""
+            "weak-to":["Fairy", "Flying", "Psychic"],
+            "strong-against":["Dark", "Ice", "Normal", "Rock", "Steel"]
         }
     ],
     "Fire":[
         {
-            "weak-to":[],
-            "strong-against":[]
+            "weak-to":["Ground", "Rock", "Water"],
+            "strong-against":["Bug", "Grass", "Ice", "Steel"]
         }
     ],
     "Flying":[
         {
-            "weak-to":[],
-            "strong-against":[]
+            "weak-to":["Electric", "Ice", "Rock"],
+            "strong-against":["Bug", "Fighting", "Grass"]
         }
     ],
     "Ghost":[
         {
-            "weak-to":[],
-            "strong-against":[]
+            "weak-to":["Dark", "Ghost"],
+            "strong-against":["Ghost", "Psychic"]
         }
     ],
     "Grass":[
         {
-            "weak-to":[],
-            "strong-against":[]
+            "weak-to":["Bug", "Fire", "Flying", "Ice", "Poison"],
+            "strong-against":["Ground", "Rock", "Water"]
         }
     ],
     "Ground":[
         {
-            "weak-to":[],
-            "strong-against":[]
+            "weak-to":["Grass", "Ice", "Water"],
+            "strong-against":["Electric", "Fire", "Poison", "Rock", "Steel"]
         }
     ],
     "Ice":[
         {
-            "weak-to":[],
-            "strong-against":[]
+            "weak-to":["Fighting", "Fire", "Rock", "Steel"],
+            "strong-against":["Dragon", "Flying", "Grass", "Ground"]
         }
     ],
     "Normal":[
         {
-            "weak-to":[],
+            "weak-to":["Fighting"],
             "strong-against":[]
         }
     ],
     "Poison":[
         {
-            "weak-to":[],
-            "strong-against":[]
+            "weak-to":["Ground", "Psychic"],
+            "strong-against":["Fairy", "Grass"]
         }
     ],
     "Psychic":[
         {
-            "weak-to":[],
-            "strong-against":[]
+            "weak-to":["Bug", "Dark", "Ghost"],
+            "strong-against":["Fighting", "Poison"]
         }
     ],
     "Rock":[
         {
-            "weak-to":[],
-            "strong-against":[]
+            "weak-to":["Fighting", "Grass", "Ground", "Steel", "Water"],
+            "strong-against":["Bug", "Fire","Flying", "Ice"]
         }
     ],
     "Steel":[
         {
-            "weak-to":[],
-            "strong-against":[]
+            "weak-to":["Fighting", "Fire", "Ground"],
+            "strong-against":["Fairy", "Ice", "Rock"]
         }
     ],
     "Water":[
         {
-            "weak-to":[],
-            "strong-against":[]
+            "weak-to":["Electric", "Grass"],
+            "strong-against":["Fire", "Ground", "Rock"]
         }
     ]
 }
