@@ -19,14 +19,62 @@
 }
 .title{
   font-family: 'Pokemon';
+  text-align: center;
   font-size: 50px;
   color: yellow;
   text-shadow: 2px 2px 0px  blue, -2px -2px 0px  blue, 2px -2px 0px  blue, -2px 2px 0px  blue;
-
+  background-color: rgba(42, 117, 187, 1);
+  border-radius: 25px;
+  padding-bottom: 10px;
 }
 .display-none{
   display: none;
 }
+
+.grid-title {
+  grid-area: header;
+  padding:5px;
+
+}
+.grid-main {
+  grid-area: main;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: auto;
+  grid-template-areas: 
+    "left right";
+}
+.grid-sidebar {
+  grid-area: sidebar;
+}
+.grid-footer {
+  grid-area: footer;
+}
+.grid-left {
+  grid-area: left;
+}
+.grid-right {
+  grid-area: right;
+}
+
+.main-grid-container {
+  display: grid;
+  grid-template-columns: 10% 26% 27% 27% 10%;
+  grid-template-rows: auto;
+  grid-template-areas: 
+    "header   header   header      header     header"
+    "sidebar  main     main        main       main"
+    "sidebar  main     main        main       main"
+    "footer   footer   footer      footer     footer";
+}
+.footer{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem;            /* Footer height */
+}
+
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
