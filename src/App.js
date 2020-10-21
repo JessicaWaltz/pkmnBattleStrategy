@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Pokemon from './components/Pokemon.js';
 import Search from './components/Search.js';
 import './App.css';
+import '../src/css/PokemonType.css'
 
 class App extends Component {
   render() {
