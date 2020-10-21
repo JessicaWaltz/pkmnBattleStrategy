@@ -67,6 +67,13 @@
     "sidebar  main     main        main       main"
     "footer   footer   footer      footer     footer";
 }
+.Sprite{
+  background-image: url('./img/btl-crcl.png');
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-position-y: 90%;
+  background-size: 50% 50%;
+}
 .footer{
   position: absolute;
   bottom: 0;
