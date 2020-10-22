@@ -34,7 +34,7 @@ function handleSubmit(dispatch) {
 function Search(props) {
   return (
     <form action="" onInput={handleSubmit(props.dispatch)}>
-      <input type="text" placeholder="name or id" name="pokemon"/>
+      <input className="search" type="text" placeholder="name or id" name="pokemon"/>
     </form>
   )
 }

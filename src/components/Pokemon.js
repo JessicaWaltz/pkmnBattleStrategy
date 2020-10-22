@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PokemonTypes from './PokemonTypes';
 
 function mapStateToProps(state) {
   return {
@@ -7,15 +8,17 @@ function mapStateToProps(state) {
     //type: state.get('pokemonType1'),
   }
 }
+/*<div className="Pokemon-types">
+This Pokemon's type is: 
+<span className={this.props.pokemon.get("types").get(0).get("type").get("name")}> 
+ {this.props.pokemon.get("types").get(0).get("type").get("name")}</span></div>
+ */
 //{this.props.pokemon.types[0].type.get('name').toJS().font_default}
 class Pokemon extends Component {
   render() {
     return (
       <article className="Pokemon">
-        <div className="Pokemon-types">
-          This Pokemon's type is: 
-          <span className={this.props.pokemon.get("types").get(0).get("type").get("name")}> 
-           {this.props.pokemon.get("types").get(0).get("type").get("name")}</span></div>
+        <PokemonTypes/>
         <div className="Sprite">
           <img
             src={this.props.pokemon.get('sprites').toJS().front_default}
@@ -25,9 +28,6 @@ class Pokemon extends Component {
           />
         </div>
         <div className="Detail">
-          <div className="display-none">
-            store types associated with pokemon type to use in results component
-          </div>
           <h4 className="Detail-name">
             {this.props.pokemon.get('name')}
           </h4>
