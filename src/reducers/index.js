@@ -8,7 +8,6 @@ const initialState = fromJS({
   pokemonType1: type1,
   pokemonType2: type2,
 });
-
 const store = (state = initialState, action) => {
   switch (action.type) {
     case 'SELECTED_POKEMON':

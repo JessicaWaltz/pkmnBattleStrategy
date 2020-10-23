@@ -1,7 +1,13 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import api from '../api/index.js';
-
+function mapStateToProps(state) {
+  return {
+    pokemon: state.get('selectedPokemon'),
+    type1: state.get('pokemonType1'),
+    type2: state.get('pokemonType2'),
+  }
+}
 function handleSubmit(dispatch) {
   return (event) => {
     event.preventDefault();
@@ -18,14 +24,14 @@ function handleSubmit(dispatch) {
       .catch((error) => {
         console.log(error);
       });
-   // api.getType1()
   }
 }
 
 function Search(props) {
   return (
-    <form action="" onInput={handleSubmit(props.dispatch)}>
+    <form action="" onSubmit={handleSubmit(props.dispatch)}>
       <input className="search" type="text" placeholder="name or id" name="pokemon"/>
+      <input className="pkmn-button"type="submit"name="Go"value="Go"/>
     </form>
   )
 }

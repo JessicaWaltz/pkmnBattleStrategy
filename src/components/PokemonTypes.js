@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import api from '../api/index.js';
 
 function mapStateToProps(state) {
     return {
@@ -7,7 +8,7 @@ function mapStateToProps(state) {
       type1: state.get('pokemonType1'),
       type2: state.get('pokemonType2'),
     }
-  }
+}
 function OneType(props){
     const type1= props.type1;
     return(
@@ -69,9 +70,57 @@ function typeTwoExists(pokemon){
         return false;
     }
 }
+function handleSubmit(dispatch) {
+    return (event) => {
+      event.preventDefault();
+      const pokemonNameID = new FormData(event.currentTarget).get('pokemon');
+      api.getPokemon(pokemonNameID)
+        .then((response) => {
+          dispatch({
+            type: 'SELECTED_POKEMON',
+            payload: {
+              pokemon: response.body,
+            }
+          })
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+     // api.getType1()
+    }
+  }
 class PokemonTypes extends Component {
-    
-    
+    shouldUpdate = true;
+    count = 0;
+    shouldComponentUpdate(){
+        if(this.shouldUpdate){
+            return true;
+        }
+        this.count=0;
+        this.shouldUpdate = true;
+        return false;
+    }
+    componentDidUpdate(){
+        var typeOne=this.props.pokemon.get("types").get(0).get("type").get("name");
+        var typeTwo=typeTwoExists(this.props.pokemon);
+        var dispatch = this.props.dispatch;
+        api.getType1(typeOne)
+        .then((response) => {
+            dispatch({
+              type: 'POKEMON_TYPE1',
+              payload: {
+                type1: response.body,
+              }
+            })
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+          this.count+=1;
+          if (this.count%2==0){
+              this.shouldUpdate = false;
+          }
+    }
     render() {
         var typeOne=this.props.pokemon.get("types").get(0).get("type").get("name");
         var typeTwo=typeTwoExists(this.props.pokemon);
