@@ -6,7 +6,6 @@ function handleSubmit(dispatch) {
   return (event) => {
     event.preventDefault();
     const pokemonNameID = new FormData(event.currentTarget).get('pokemon');
-    //const pokemonType1= new FotmData(event.currentTarget).get('pokemon').get('types').get(0).get('name');
     api.getPokemon(pokemonNameID)
       .then((response) => {
         dispatch({
@@ -19,15 +18,7 @@ function handleSubmit(dispatch) {
       .catch((error) => {
         console.log(error);
       });
-   /* api.getType1(pokemonType1)
-    .then((response) => {
-      dispatch({
-        type: 'POKEMON_TYPE1',
-        payload:{
-          type: response.body,
-        }
-      })
-    });*/
+   // api.getType1()
   }
 }
 

@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 function mapStateToProps(state) {
     return {
       pokemon: state.get('selectedPokemon'),
-      //type: state.get('pokemonType1'),
+      type1: state.get('pokemonType1'),
+      type2: state.get('pokemonType2'),
     }
   }
 function OneType(props){
@@ -33,6 +34,23 @@ function TwoTypes(props){
     </div>
     )
 }
+/*function ReturnType1(props){
+    const type1= props.type1;
+    return type1;
+}
+function ReturnType2(props){
+    const type2= props.type2;
+    return type2;
+}
+function Has1Or2(pokemon){
+    try{
+        const test= pokemon.get("types").get(1).get("type").get("name");
+        return 2
+    }
+    catch(e){
+        return 1;
+    }
+}*/
 function IsPokemonTypes(props){
     const type1= props.type1;
     const type2= props.type2;
@@ -58,8 +76,11 @@ class PokemonTypes extends Component {
         var typeOne=this.props.pokemon.get("types").get(0).get("type").get("name");
         var typeTwo=typeTwoExists(this.props.pokemon);
         return (
-    <IsPokemonTypes type1={typeOne}
-    type2={typeTwo} />
+            <div>
+                <IsPokemonTypes type1={typeOne}
+                type2={typeTwo} />
+                This pokemon is weak to {this.props.type1.get("damage_relations").get("double_damage_from").get(0).get("name")}
+            </div>
         )
     }
 }
