@@ -26,7 +26,7 @@ class App extends Component {
             <Pokemon/>
           </div>
         </div>
-        <div className="footer grid-footer"> this is the footer to be added </div>
+        <div className="footer grid-footer"> <br></br><br></br><br></br><br></br>this is the footer to be added </div>
       </div>
     );
   }

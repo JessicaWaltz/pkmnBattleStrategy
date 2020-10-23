@@ -30,8 +30,8 @@ function handleSubmit(dispatch) {
 function Search(props) {
   return (
     <form action="" onSubmit={handleSubmit(props.dispatch)}>
-      <input className="search" type="text" placeholder="name or id" name="pokemon"/>
-      <input className="pkmn-button"type="submit"name="Go"value="Go"/>
+      <input className="search" type="text" placeholder="name/id" name="pokemon"/>
+      <input className="pkmn-button"type="submit"name="."value="."/>
     </form>
   )
 }

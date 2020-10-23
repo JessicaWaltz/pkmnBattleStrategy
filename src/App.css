@@ -20,6 +20,8 @@
 }
 body { 
   background-image: url('./img/Pokemon-BG.jpg');
+  background-attachment: fixed;
+  background-size: auto;
 }
 .display-none{
   display: none;
@@ -28,10 +30,12 @@ body {
 .grid-title {
   grid-area: header;
   padding:5px;
-
 }
 .grid-explanation{
   grid-area: top;
+  padding-bottom: 20px;
+  
+
 }
 .grid-main {
   grid-area: main;
@@ -49,6 +53,14 @@ body {
 }
 .grid-footer {
   grid-area: footer;
+  background-image: url('./img/footer.png');
+}
+.footer{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  
+  
 }
 .grid-left {
   grid-area: left;
@@ -59,6 +71,7 @@ body {
 
 .main-grid-container {
   display: grid;
+  padding: 10px 10px 10px 10px;
   grid-template-columns: 10% 26% 27% 27% 10%;
   grid-template-rows: auto;
   grid-template-areas: 
@@ -70,11 +83,12 @@ body {
 .pkmn-button {
   background-image: url('./img/pkmn-btn.png');
   background-position: center;
+  background-size: cover;
   border-color: rgb(92,92,92);
   border-radius: 50%;
   border-width: 3px;
-  height:42px;
-  width:42px;
+  height:32px;
+  width:32px;
   
 }
 .pkmn-button:focus {
@@ -98,12 +112,7 @@ body {
   text-shadow: 2px 2px 0px  blue, -2px -2px 0px  blue, 2px -2px 0px  blue, -2px 2px 0px  blue;
   padding-bottom: 10px;
 }
-.footer{
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 2.5rem;            /* Footer height */
-}
+
 
 
 @keyframes App-logo-spin {

@@ -116,6 +116,22 @@ class PokemonTypes extends Component {
           .catch((error) => {
             console.log(error);
           });
+        try{
+            api.getType2(typeTwo)
+            .then((response) => {
+                dispatch({
+                  type: 'POKEMON_TYPE2',
+                  payload: {
+                    type1: response.body,
+                  }
+                })
+              })
+              .catch((error) => {
+                console.log(error);
+              });
+        }catch(e){
+            
+        }
           this.count+=1;
           if (this.count%2==0){
               this.shouldUpdate = false;
@@ -128,8 +144,7 @@ class PokemonTypes extends Component {
             <div>
                 <IsPokemonTypes type1={typeOne}
                 type2={typeTwo} />
-                This pokemon is weak to {this.props.type1.get("damage_relations").get("double_damage_from").get(0).get("name")}
-            </div>
+             </div>
         )
     }
 }
