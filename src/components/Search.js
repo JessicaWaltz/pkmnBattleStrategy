@@ -1,13 +1,13 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import api from '../api/index.js';
-function mapStateToProps(state) {
+/*function mapStateToProps(state) {
   return {
     pokemon: state.get('selectedPokemon'),
     type1: state.get('pokemonType1'),
     type2: state.get('pokemonType2'),
   }
-}
+}*/
 function handleSubmit(dispatch) {
   return (event) => {
     event.preventDefault();

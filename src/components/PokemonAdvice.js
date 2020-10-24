@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import PokemonTypes from './PokemonTypes';
-import api from '../api/index.js';
 //damage_relations
     /**
      * double_damage_from
@@ -11,9 +9,9 @@ import api from '../api/index.js';
      * no_damage_from
      * no_damage_to
      */
-function handleType(dispatch) {
+/*function handleType(dispatch) {
     return false;
-}
+}*/
 function mapStateToProps(state) {
     try{
         return {
@@ -56,11 +54,11 @@ function compare2TypeEffective(type1EffectiveApi,type1NotEffectiveApi,type2Effec
     var newE2=type2E.filter(val => !type1NE.includes(val));
     return [...newE1,...newE2];
 }
-function compare2TypeAvoid(){
+/*function compare2TypeAvoid(){
     //double-damage-to 
     //combine both types because it will have both moves of that type
 
-}
+}*/
 function typeTwoExists(pokemon){
     try{
         pokemon.get("types").get(1).get("type").get("name");

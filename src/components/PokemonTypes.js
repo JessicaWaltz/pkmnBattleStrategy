@@ -70,25 +70,6 @@ function typeTwoExists(pokemon){
         return false;
     }
 }
-function handleSubmit(dispatch) {
-    return (event) => {
-      event.preventDefault();
-      const pokemonNameID = new FormData(event.currentTarget).get('pokemon');
-      api.getPokemon(pokemonNameID)
-        .then((response) => {
-          dispatch({
-            type: 'SELECTED_POKEMON',
-            payload: {
-              pokemon: response.body,
-            }
-          })
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-     // api.getType1()
-    }
-  }
 class PokemonTypes extends Component {
     shouldUpdate = true;
     count = 0;
@@ -133,7 +114,7 @@ class PokemonTypes extends Component {
             
         }
           this.count+=1;
-          if (this.count%2==0){
+          if (this.count%2===0){
               this.shouldUpdate = false;
           }
     }

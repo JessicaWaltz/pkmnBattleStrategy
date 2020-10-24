@@ -21,6 +21,7 @@ class Pokemon extends Component {
             crossOrigin="anonymous"
             ref="sprite"
             id="sp"
+            alt="sprite img"
           />
         </div>
         <div className="Detail">
