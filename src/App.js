@@ -1,10 +1,162 @@
 import React, { Component } from 'react';
 import Pokemon from './components/Pokemon.js';
 import Search from './components/Search.js';
+import api from './api/index.js';
 import './App.css';
 import '../src/css/PokemonType.css'
 
 class App extends Component {
+  componentDidMount(dispatch){
+    return (event) => {
+      event.preventDefault();
+      api.getNormal()
+      .then((response) => {
+        dispatch({
+          type: 'NORMAL_TYPE',
+          payload: {
+            normal: response.body,
+          }
+        })
+      });
+      api.getFighting()
+      .then((response) => {
+        dispatch({
+          type: 'FIGHTING_TYPE',
+          payload: {
+            fighting: response.body,
+          }
+        })
+      });
+      api.getFlying()
+      .then((response) => {
+        dispatch({
+          type: 'FLYING_TYPE',
+          payload: {
+            flying: response.body,
+          }
+        })
+      });
+      api.getGround()
+      .then((response) => {
+        dispatch({
+          type: 'GROUND_TYPE',
+          payload: {
+            ground: response.body,
+          }
+        })
+      });
+      api.getRock()
+      .then((response) => {
+        dispatch({
+          type: 'ROCK_TYPE',
+          payload: {
+            rock: response.body,
+          }
+        })
+      });
+      api.getBug()
+      .then((response) => {
+        dispatch({
+          type: 'BUG_TYPE',
+          payload: {
+            bug: response.body,
+          }
+        })
+      });
+      api.getGhost()
+      .then((response) => {
+        dispatch({
+          type: 'GHOST_TYPE',
+          payload: {
+            ghost: response.body,
+          }
+        })
+      });
+      api.getSteel()
+      .then((response) => {
+        dispatch({
+          type: 'STEEL_TYPE',
+          payload: {
+            steel: response.body,
+          }
+        })
+      });
+      api.getFire()
+      .then((response) => {
+        dispatch({
+          type: 'FIRE_TYPE',
+          payload: {
+            fire: response.body,
+          }
+        })
+      });
+      api.getWater()
+      .then((response) => {
+        dispatch({
+          type: 'WATER_TYPE',
+          payload: {
+            water: response.body,
+          }
+        })
+      });
+      api.getElectric()
+      .then((response) => {
+        dispatch({
+          type: 'ELECTRIC_TYPE',
+          payload: {
+            electric: response.body,
+          }
+        })
+      });
+      api.getPsychic()
+      .then((response) => {
+        dispatch({
+          type: 'PSYCHIC_TYPE',
+          payload: {
+            psychic: response.body,
+          }
+        })
+      });
+      api.getIce()
+      .then((response) => {
+        dispatch({
+          type: 'ICE_TYPE',
+          payload: {
+            ice: response.body,
+          }
+        })
+      });
+      api.getDragon()
+      .then((response) => {
+        dispatch({
+          type: 'DRAGON_TYPE',
+          payload: {
+            dragon: response.body,
+          }
+        })
+      });
+      api.getDark()
+      .then((response) => {
+        dispatch({
+          type: 'DARK_TYPE',
+          payload: {
+            dark: response.body,
+          }
+        })
+      });
+      api.getFairy()
+      .then((response) => {
+        dispatch({
+          type: 'FAIRY_TYPE',
+          payload: {
+            fairy: response.body,
+          }
+        })
+      });
+      
+    }
+  }
+  
   render() {
     return (
       <div className="App main-grid-container">

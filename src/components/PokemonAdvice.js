@@ -43,6 +43,7 @@ function getTypeArray(typeApi){
 }
 
 function getTypeHTML(typeArray){
+    console.log("Hello");
     return typeArray.map((type)=><div className={type}>{type}</div>);
 }
 function compare2TypeEffective(type1EffectiveApi,type1NotEffectiveApi,type2EffectiveApi,type2NotEffectiveApi){

@@ -7,6 +7,7 @@ function mapStateToProps(state) {
     pokemon: state.get('selectedPokemon'),
     type1: state.get('pokemonType1'),
     type2: state.get('pokemonType2'),
+    
   }
 }
 
@@ -29,10 +30,10 @@ class Pokemon extends Component {
             {this.props.pokemon.get('name')}
           </h4>
         </div>
-          <PokemonAdvice/>
+          
       </article>
     )
   }
 }
-
+//<PokemonAdvice/>
 export default connect(mapStateToProps)(Pokemon);
