@@ -22,7 +22,6 @@ function mapStateToProps(state) {
 function getTypeArray(typeApi){
     var typesArray = [];
     var count = Object.keys(typeApi).length;
-    console.log(count);
     try{
         for (var i =0; i<count;i++)
         {
@@ -35,7 +34,6 @@ function getTypeArray(typeApi){
 }
 
 function getTypeHTML(typeArray){
-    console.log("Hello");
     return typeArray.map((type)=><div className={type}>{type}</div>);
 }
 function compare2TypeEffective(type1EffectiveApi,type1NotEffectiveApi,type2EffectiveApi,type2NotEffectiveApi){
