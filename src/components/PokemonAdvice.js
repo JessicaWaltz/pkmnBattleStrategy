@@ -13,18 +13,10 @@ import { connect } from 'react-redux';
     return false;
 }*/
 function mapStateToProps(state) {
-    try{
-        return {
-        pokemon: state.get('selectedPokemon'),
-        type1: state.get('pokemonType1'),
-        type2: state.get('pokemonType2'),
-        }
-    }catch(e){
-        return{
-        pokemon: state.get('selectedPokemon'),
-        type1: state.get('pokemonType1'),
-        type2: false,
-        }
+    return {
+    pokemon: state.get('selectedPokemon'),
+    type1: state.get('pokemonType1'),
+    type2: state.get('pokemonType2'),
     }
 }
 function getTypeArray(typeApi){

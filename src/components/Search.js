@@ -15,21 +15,58 @@ function handleSubmit(dispatch) {
   return (event) => {
     event.preventDefault();
     const pokemonNameID = new FormData(event.currentTarget).get('pokemon');
+    var type_1=false;
+    var type_2=false;
+    console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
     console.log(pokemonNameID);
     api.getPokemon(pokemonNameID)
       .then((response) => {
+        //console.log("response.body.types");
+        //type_1=response.body.types[0].type.url;
+        //try{type_2=response.body.types[1].type.url;}catch(e){console.log("this is fine")}
         dispatch({
           type: 'SELECTED_POKEMON',
           payload: {
             pokemon: response.body,
           }
         })
+        
+        api.getType1(response.body.types[0].type.name)
+        .then((response2) =>{
+          dispatch({
+            type: 'POKEMON_TYPE1',
+            payload: {
+              type1: response2.body,
+            }
+          })
+        })
+        .catch((error2)=>{
+          console.log("ERROR IN GETTYPE1");
+          console.log(error2);
+        })
+        if(response.body.types.length === 2){
+        api.getType2(response.body.types[1].type.name)
+        .then((response3) =>{
+          dispatch({
+            type: 'POKEMON_TYPE2',
+            payload: {
+              type2: response3.body,
+            }
+          })
+        })
+        .catch((error3)=>{
+          console.log("ERROR IN GETTYPE2");
+          console.log(error3);
+        })}
       })
       .catch((error) => {
+        console.log("ccccccccccccccc");
         console.log(error);
       })
-      .then(()=>{
-        fetch(this.props.pokemon.get("types").get(0).get("type").get("url"))
+      /*.then(()=>{
+        console.log("HELLO");
+        console.log(api.getPokemon(pokemonNameID))
+        fetch(type_1)
         .then((response) => {
           dispatch({
             type: 'POKEMON_TYPE1',
@@ -41,7 +78,7 @@ function handleSubmit(dispatch) {
       })
       .then(()=>{
         try{
-        fetch(this.props.pokemon.get("types").get(1).get("type").get("url"))
+        fetch(type_2)
         .then((response) => {
           dispatch({
             type: 'POKEMON_TYPE2',
@@ -54,7 +91,7 @@ function handleSubmit(dispatch) {
         catch(e){
           
         }
-      })
+      })*/
   }
 }
 function handlePokemonSubmit(dispatch){

@@ -30,7 +30,7 @@ class Pokemon extends Component {
             {this.props.pokemon.get('name')}
           </h4>
         </div>
-          
+          <PokemonAdvice/>
       </article>
     )
   }

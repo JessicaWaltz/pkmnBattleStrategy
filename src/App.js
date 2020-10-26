@@ -6,7 +6,8 @@ import './App.css';
 import '../src/css/PokemonType.css'
 
 class App extends Component {
-  componentDidMount(dispatch){
+  componentDidMount(){
+    var dispatch = this.props.dispatch;
     return (event) => {
       event.preventDefault();
       api.getNormal()
