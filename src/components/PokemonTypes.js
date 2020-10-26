@@ -11,7 +11,7 @@ function mapStateToProps(state) {
 }
 function type2Exists(pokemon){
     try{
-        console.log(pokemon.get("types").get(1).get("type").get("name"));
+        pokemon.get("types").get(1).get("type").get("name");
         return true
     }
     catch(e){

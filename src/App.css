@@ -68,7 +68,14 @@ body {
 .grid-right {
   grid-area: right;
 }
-
+.grid-types{
+  text-align: center;
+  display: grid;
+  grid-template-areas: "a a a a a";
+  grid-gap: 10px;
+  justify-content: center;
+  
+}
 .main-grid-container {
   display: grid;
   padding: 10px 10px 10px 10px;

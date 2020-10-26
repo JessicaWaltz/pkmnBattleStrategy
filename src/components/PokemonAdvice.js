@@ -34,7 +34,7 @@ function getTypeArray(typeApi){
 }
 
 function getTypeHTML(typeArray){
-    return typeArray.map((type)=><div className={type}>{type}</div>);
+    return typeArray.map((type)=><span><div className={type}>{type}</div></span>);
 }
 function compare2TypeEffective(type1EffectiveApi,type1NotEffectiveApi,type2EffectiveApi,type2NotEffectiveApi){
     var type1E = getTypeArray(type1EffectiveApi);
@@ -65,22 +65,22 @@ class PokemonAdvice extends Component {
   render() {
     if(typeTwoExists(this.props.pokemon)){
         return (
-            <div>
-                This pokemon is weak to {getTypeHTML(compare2TypeEffective(
+            <div className="center">
+                This pokemon is weak to <div className="grid-types"> {getTypeHTML(compare2TypeEffective(
                 this.props.type1.get("damage_relations").get("double_damage_from"),
                 this.props.type1.get("damage_relations").get("half_damage_from"),
                 this.props.type2.get("damage_relations").get("double_damage_from"),
                 this.props.type2.get("damage_relations").get("half_damage_from")
-                ))}
+                ))}</div>
             </div>
         )
     }
     else{//one type
         return (
-            <div>
-                This pokemon is weak to {getTypeHTML(getTypeArray(
+            <div className="center">
+                This pokemon is weak to <div className="grid-types"> {getTypeHTML(getTypeArray(
                 this.props.type1.get("damage_relations").get("double_damage_from")
-                ))}
+                ))}</div>
             </div>
         )
     }
