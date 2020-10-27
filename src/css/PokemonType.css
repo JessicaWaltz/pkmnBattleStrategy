@@ -70,6 +70,12 @@
     border-radius: 7px;
     padding: 1.5px 15px 3px 15px;
 }
+.none{
+    background-color: grey;
+    color: white;
+    border-radius: 7px;
+    padding: 1.5px 15px 3px 15px;
+}
 .normal{
     background-color: #A8A878;
     color: white;

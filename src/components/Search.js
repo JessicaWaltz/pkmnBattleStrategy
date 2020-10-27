@@ -5,7 +5,7 @@ import api from '../api/index.js';
 function handleSubmit(dispatch) {
   return (event) => {
     event.preventDefault();
-    const pokemonNameID = new FormData(event.currentTarget).get('pokemon');
+    const pokemonNameID = new FormData(event.currentTarget).get('pokemon').toLowerCase();
     api.getPokemon(pokemonNameID)
       .then((response) => {
         dispatch({

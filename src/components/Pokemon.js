@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PokemonTypes from './PokemonTypes';
-import PokemonAdvice from './PokemonAdvice'
+import PokemonAdvice from './PokemonAdvice';
 function mapStateToProps(state) {
   return {
     pokemon: state.get('selectedPokemon'),
