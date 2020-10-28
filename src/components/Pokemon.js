@@ -10,7 +10,9 @@ function mapStateToProps(state) {
     
   }
 }
-
+/**
+ * All pokeomon related info is rendered here
+ */
 class Pokemon extends Component {
   render() {
     return (

@@ -165,16 +165,16 @@ class App extends Component {
       <div className="App main-grid-container">
         <div className="grid-title"> <div><div className="title">PKMN Battle Strategy</div></div></div>
         <div className="grid-main">
-            <div className="grid-left">Enter Enemy Pokemon:
+            <div className="grid-left">Enter Enemy Pokémon:
             <Search/>
             </div>
             <div className="grid-explanation">
-              <div className="Explanation-top">.</div>
-              <div className="Explanation">
-                Welcome to Pokemon Battle Strategy! Here you can enter the pokemon your fighting and we will calculate the best
+              <div className="cloud-top">.</div>
+              <div className="Explanation cloud">
+                Welcome to Pokémon Battle Strategy! Here you can enter the Pokémon your fighting and we will calculate the best
                 type advantage for you to counter them with.
               </div>
-              <div className="Explanation-bottom">.</div>
+              <div className="cloud-bottom">.</div>
             </div>
           <div className="grid-right">
             <Pokemon/>
@@ -184,6 +184,7 @@ class App extends Component {
       <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br> 
       <footer className="footer grid-footer"> <br></br><br></br> 
         <MyFooter/>
+        <br></br>
       </footer>
     </div>
     );

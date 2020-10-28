@@ -9,6 +9,12 @@ function mapStateToProps(state) {
       type2: state.get('pokemonType2'),
     }
 }
+/**
+ * this function looks at the pokemon info and checks to 
+ * see if the pokemon has two types or one and returns 
+ * true if there are 2 types and false if there is only one
+ * @param {the pokemon info returned from the api} pokemon 
+ */
 function type2Exists(pokemon){
     try{
         pokemon.get("types").get(1).get("type").get("name");
@@ -24,7 +30,7 @@ class PokemonTypes extends Component {
         if(type2Exists(this.props.pokemon)){
             return (
                 <div className="Pokemon-types">
-                    This Pokemon is: 
+                    This Pokémon's type is: 
                     <span className={this.props.type1.get("name")}> 
                     {this.props.type1.get("name")}
                     </span> 
@@ -37,7 +43,7 @@ class PokemonTypes extends Component {
         }
         return (
             <div className="Pokemon-types">
-                This Pokemon is: 
+                This Pokémon's type is: 
                 <span className={this.props.type1.get("name")}> 
                 {this.props.type1.get("name")}
                 </span>

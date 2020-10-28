@@ -9,9 +9,6 @@ import { connect } from 'react-redux';
      * no_damage_from
      * no_damage_to
      */
-/*function handleType(dispatch) {
-    return false;
-}*/
 function mapStateToProps(state) {
     return {
     pokemon: state.get('selectedPokemon'),
@@ -19,6 +16,10 @@ function mapStateToProps(state) {
     type2: state.get('pokemonType2'),
     }
 }
+/**
+ * getTypeArray returns the param as a list to be used later
+ * @param {A json list of types that needs to be returned as an array} typeApi 
+ */
 function getTypeArray(typeApi){
     var typesArray = [];
     var count = Object.keys(typeApi).length;
@@ -32,13 +33,32 @@ function getTypeArray(typeApi){
     }
     return  typesArray;
 }
-
+/**
+ * getTypeHTML converts the array of types to the desired 
+ * HTML format to style them based on the type
+ * @param {an Array of select pokemon types} typeArray 
+ */
 function getTypeHTML(typeArray){
     if(typeArray === undefined || typeArray.length === 0){
         return <span><div className="none">none</div></span>;
     }
     return typeArray.map((type)=><span><div className={type}>{type}</div></span>);
 }
+/**
+ * Returns a type array based on the num value 
+ * - 4 returns any double_damage_from types that are available 
+ * in both type1 and type2
+ * - 2 returns the combined double_damage_from types from type1
+ * and type2 removing any duplicates or any that are  
+ * no_damage_from in the other type
+ * - 0 returns the combined no_damage_from types that are available 
+ * in both type1 and type2
+ * - -2 returns the combined double_damage_to types from type1
+ * and type2
+ * @param {num can be 4 2 0 or -2} num 
+ * @param {the json info of the first type of the pokemon} type1 
+ * @param {the json info of the second type of the pokemon} type2 
+ */
 function compareTypeEffectiveOrAvoid(num,type1,type2){
     var ddf1 = type1.get("damage_relations").get("double_damage_from");
     var hdf1 = type1.get("damage_relations").get("half_damage_from");
@@ -95,7 +115,45 @@ function typeTwoExists(pokemon){
         return false;
     }
 }
-//getTypeHTML(this.props.type1.get("damage_relations").get("double_damage_from"))
+/**
+ * The num value determines what info the typeArray holds and 
+ * determines what HTML code this function should return
+ * - 4 This pokemon takes x4 damage from:
+ * - 2 This pokemon takes x2 damage from:
+ * - 0 This pokemon won't take any damage from:
+ * - -2 This pokemon's matching type moves can do x2 damage to: 
+ * @param {can be 4 2 0 or -2} num 
+ * @param {an Array of pokemon types} typeArray 
+ */
+function typeEffective(num, typeArray){
+    if(typeArray === undefined || typeArray.length === 0){
+        return;
+    }
+    else if(num === 4){
+        return(
+            <div>This pokémon takes x4 damage from: <div className="grid-types"> {getTypeHTML(typeArray)}</div></div>
+        )
+    }
+    else if(num === 2){
+        return(
+            <div>This pokémon takes x2 damage from: <div className="grid-types"> {getTypeHTML(typeArray)}</div></div>
+        )
+    }
+    else if(num === 0){
+        return(
+            <div>This pokémon won't take any damage from: <div className="grid-types"> {getTypeHTML(typeArray)}</div></div>
+        )
+    }
+    else if(num === -2){
+        return(
+            <div>This pokémon's matching type moves can do x2 damage to: <div className="grid-types"> {getTypeHTML(typeArray)}</div></div>
+        )
+    }
+}
+/**
+ * This component renders the type info to give the user advice on what types they should
+ * avoid or prioritize.
+ */
 class PokemonAdvice extends Component {
   render() {
     if(typeTwoExists(this.props.pokemon)){
@@ -106,25 +164,19 @@ class PokemonAdvice extends Component {
         var NoDamageTo = compareTypeEffectiveOrAvoid(1,this.props.type1,this.props.type2);
         return (
             <div className="center">
-                This pokemon takes x4 damage from: <div className="grid-types"> {getTypeHTML(EffectiveX4)}</div>
-                This pokemon takes x2 damage from: <div className="grid-types"> {getTypeHTML(EffectiveX2)}</div>
-                This pokemon won't take any damage from: <div className="grid-types"> {getTypeHTML(NoDamagefrom)}</div>
-                This pokemon's matching type moves can do x2 damage to: <div className="grid-types"> {getTypeHTML(NotEffectiveX2)}</div>
+                {typeEffective(4,EffectiveX4)}
+                {typeEffective(2,EffectiveX2)}
+                {typeEffective(0,NoDamagefrom)}
+                {typeEffective(-2,NotEffectiveX2)}
             </div>
         )
     }
     else{
         return (
             <div className="center">
-                This pokemon takes x2 damage from: <div className="grid-types"> {getTypeHTML(getTypeArray(
-                this.props.type1.get("damage_relations").get("double_damage_from")
-                ))}</div>
-                This pokemon won't take any damage from: <div className="grid-types"> {getTypeHTML(getTypeArray(
-                this.props.type1.get("damage_relations").get("no_damage_from")
-                ))}</div>
-                This pokemon's matching type moves can do x2 damage to: <div className="grid-types"> {getTypeHTML(getTypeArray(
-                this.props.type1.get("damage_relations").get("double_damage_to")
-                ))}</div>
+                {typeEffective(2,getTypeArray(this.props.type1.get("damage_relations").get("double_damage_from")))}
+                {typeEffective(0,getTypeArray(this.props.type1.get("damage_relations").get("no_damage_from")))}
+                {typeEffective(-2,getTypeArray(this.props.type1.get("damage_relations").get("double_damage_to")))}
             </div>
         )
     }

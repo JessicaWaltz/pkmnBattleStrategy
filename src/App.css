@@ -29,19 +29,19 @@ body {
 
 .dont-link:focus{
   outline: none;
-  color: black;
+  color: darkgreen;
 }
 .dont-link:link {
   text-decoration: none;
-  color: black;
+  color: darkgreen;
 }
 .dont-link:visited {
   text-decoration: none;
-  color: black;
+  color: darkgreen;
 }
 .dont-link:hover {
   text-decoration: none;
-  color: black;
+  color: darkgreen;
 }
 
 .dont-link:active {
@@ -85,8 +85,7 @@ body {
     background-size: 100% 100%;
     padding-top: 0;
     padding-bottom: 0;
-  
-  
+    color: darkgreen;
 }
 .grid-left {
   grid-area: left;
@@ -102,6 +101,12 @@ body {
   justify-content: center;
   
 }
+.info{
+  display:grid;
+  grid-template-areas: "f-left f-right";
+
+}
+
 .main-grid-container {
   display: grid;
   grid-template-columns: 10% 26% 27% 27% 10%;
@@ -137,6 +142,14 @@ body {
   background-position-y: 90%;
   background-size: 50% 50%;
 }
+.stay-left{
+  grid-area: f-left;
+  padding-left: 50px;
+}
+.stay-right{
+  grid-area: f-right;
+  text-align: center;
+}
 .title{
   font-family: 'Pokemon';
   text-align: center;
@@ -145,7 +158,7 @@ body {
   text-shadow: 2px 2px 0px  blue, -2px -2px 0px  blue, 2px -2px 0px  blue, -2px 2px 0px  blue;
   padding-bottom: 10px;
 }
-.Explanation{
+.cloud{
   
   padding: 10px 30px 5px 30px;
   background-image: url("./img/Cloud-sides.png");
@@ -153,14 +166,14 @@ body {
   background-size: 100% 100%;
   
 }
-.Explanation-top{
+.cloud-top{
   background-image: url("./img/Cloud-top.png");
   background-repeat: no-repeat;
   background-size: 100% 100%;
-  color: rgba(229,228,249,0);
+  color: #e5e4f900;
   padding: 12px;
 }
-.Explanation-bottom{
+.cloud-bottom{
   background-image: url("./img/Cloud-bottom.png");
   background-repeat: no-repeat;
   background-size: 100% 10%;

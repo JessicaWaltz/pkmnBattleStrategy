@@ -1,7 +1,12 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import api from '../api/index.js';
-
+/**
+ * Makes 2-3 API calls when submit button is pushed
+ * adds pokemon to the store along with an API call
+ * for type info associated with the pokemon
+ * @param {propTypes.func} dispatch 
+ */
 function handleSubmit(dispatch) {
   return (event) => {
     event.preventDefault();
@@ -47,6 +52,11 @@ function handleSubmit(dispatch) {
       })
   }
 }
+/**
+ * input field to enter pokemon name or id and submit button
+ * to search and store information on the pokemon
+ * @param {props} props 
+ */
 function Search(props) {
   return (
     <form action="" onSubmit={handleSubmit(props.dispatch)}>
