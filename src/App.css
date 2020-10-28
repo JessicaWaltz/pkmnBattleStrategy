@@ -78,6 +78,9 @@ body {
   background-image: url('./img/footer.png');
   width:100%;
 }
+.footer-color{
+  background-color: darkgreen;
+}
 .footer{
     background-position: top left;
     background-repeat: no-repeat;
@@ -199,6 +202,56 @@ body {
 @font-face {
   font-family: 'Pokemon';
   src: url('./fonts/pokemon/Pokemon-Solid.ttf');
+}
+@media only screen and (max-width: 540px) {
+
+  .cloud{
+    padding: 5px;
+    background-image: none;
+    background-color: rgb(243,249,249);
+    border-radius: 10px;
+    
+  }
+  .cloud-top{
+    display: none;
+  }
+  .cloud-bottom{
+    display:none;
+  }
+  .footer-title{
+    padding-top: 5%;
+    padding-bottom: 5%;
+  }
+  .grid-main {
+    grid-area: main;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: auto;
+    grid-template-areas: 
+      "top  top"
+      "left left"
+      "right right";
+    padding-left: 5%;
+    padding-right:5%;
+  }
+  .info{
+    display:grid;
+    grid-template-areas: 
+    "f-left"
+    "f-right";
+    padding-left: 5%;
+  
+  }
+  .stay-left{
+    padding-left: 0px;
+  }
+  .title{
+    font-size: 25px;
+  }
+
+
+
+
 }
 /*
 Pokémon Logo Yellow

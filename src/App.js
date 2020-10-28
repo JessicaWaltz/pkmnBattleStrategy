@@ -186,6 +186,7 @@ class App extends Component {
         <MyFooter/>
         <br></br>
       </footer>
+      <div className="footer-color"></div>
     </div>
     );
   }
