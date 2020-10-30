@@ -204,7 +204,9 @@ body {
   src: url('./fonts/pokemon/Pokemon-Solid.ttf');
 }
 @media only screen and (max-width: 540px) {
-
+  body{
+    width: 100vw;
+  }
   .cloud{
     padding: 5px;
     background-image: none;
