@@ -8,6 +8,7 @@ import api from '../api/index.js';
  * @param {propTypes.func} dispatch 
  */
 function handleSubmit(dispatch) {
+  //set loading to true
   return (event) => {
     event.preventDefault();
     const pokemonNameID = new FormData(event.currentTarget).get('pokemon').toLowerCase();
@@ -41,6 +42,7 @@ function handleSubmit(dispatch) {
               type2: response3.body,
             }
           })
+          //loading = false
         })
         .catch((error3)=>{
           console.log("ERROR IN GETTYPE2");

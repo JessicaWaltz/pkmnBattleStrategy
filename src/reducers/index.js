@@ -27,7 +27,9 @@ const initialState = fromJS({
   darkType: api.getDark(),
   fairyType: api.getFairy(),
 
-
+//pokemon: state.get('selectedPokemon'),
+//case 'SELECTED_POKEMON':
+//return state.set('selectedPokemon', fromJS(action.payload.pokemon));
 });
 const store = (state = initialState, action) => {
   switch (action.type) {
