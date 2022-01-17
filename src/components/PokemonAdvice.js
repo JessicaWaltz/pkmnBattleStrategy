@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+
+import typeImmunity from '../reducers/typeImmunity';
 //damage_relations
     /**
      * double_damage_from
@@ -116,13 +118,40 @@ function typeTwoExists(pokemon){
     }
 }
 /**
+ * Abilities is put into a list with the abilities names only
+ * then it is compared to the type immunity list of names
+ * if a match is found the name of the ability and the type
+ * the ability gives imunity to is pushed to the array.
+ * Once all possible abilities are accounted for the array 
+ * is returned.
+ */
+function checkImmunities(abilities){
+    var immuneAbility = [];
+    var abilitylist = [];
+    for (let i = 0; i < abilities.size; i++){
+        abilitylist.push(abilities.get(i).get("ability").get("name"));
+        for (let j = 0; j < Object.keys(typeImmunity).length; j++){
+            if(typeImmunity[j].ability_name.match(abilitylist[i]) && abilitylist[i] != null)
+            {
+                var obj = {};
+                obj["name"] = typeImmunity[j].ability_name;
+                obj["immune"] = typeImmunity[j].immune_to;
+                immuneAbility.push(obj);
+            }
+        }
+    }
+    return immuneAbility;
+}
+/**
  * The num value determines what info the typeArray holds and 
  * determines what HTML code this function should return
  * - 4 This pokemon takes x4 damage from:
  * - 2 This pokemon takes x2 damage from:
  * - 0 This pokemon won't take any damage from:
  * - -2 This pokemon's matching type moves can do x2 damage to: 
- * @param {can be 4 2 0 or -2} num 
+ * - anything besides the above is a check for immunity to a type
+ * due to an ability 
+ * @param {can be 4 2 0 or -2 else it is an ability check} num 
  * @param {an Array of pokemon types} typeArray 
  */
 function typeEffective(num, typeArray){
@@ -149,6 +178,15 @@ function typeEffective(num, typeArray){
             <div>This pokémon's matching type moves can do x2 damage to: <div className="grid-types"> {getTypeHTML(typeArray)}</div></div>
         )
     }
+    else{
+        var immuneAbilities = checkImmunities(typeArray);
+        if(immuneAbilities.length != 0){
+            return(
+                immuneAbilities.map((a)=> <div>Possible ability {a.name} would make them immune to: <div className="grid-types"> {getTypeHTML([a.immune])}</div></div>)
+            )
+        }
+        return;
+    }
 }
 /**
  * This component renders the type info to give the user advice on what types they should
@@ -168,6 +206,7 @@ class PokemonAdvice extends Component {
                 {typeEffective(2,EffectiveX2)}
                 {typeEffective(0,NoDamagefrom)}
                 {typeEffective(-2,NotEffectiveX2)}
+                {typeEffective(100, this.props.pokemon.get("abilities"))}
             </div>
         )
     }
@@ -177,6 +216,7 @@ class PokemonAdvice extends Component {
                 {typeEffective(2,getTypeArray(this.props.type1.get("damage_relations").get("double_damage_from")))}
                 {typeEffective(0,getTypeArray(this.props.type1.get("damage_relations").get("no_damage_from")))}
                 {typeEffective(-2,getTypeArray(this.props.type1.get("damage_relations").get("double_damage_to")))}
+                {typeEffective(100, this.props.pokemon.get("abilities"))}
             </div>
         )
     }
