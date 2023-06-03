@@ -74,7 +74,6 @@ const pokemon = {
     }
   ],
   "name": "bulbasaur",
-
   "sprites": {
     "back_female": null,
     "back_shiny_female": null,
