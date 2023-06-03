@@ -16,8 +16,8 @@ COPY . .
 # Build the React app
 RUN npm run build
 
-# Expose a TCP port
-EXPOSE 80
-
 # Set the command to run the app when the container starts
 CMD [ "npm", "start" ]
+
+# Expose a TCP port
+EXPOSE 80
